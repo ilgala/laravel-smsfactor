@@ -12,7 +12,7 @@
 namespace IlGala\LaravelSMSFactor;
 
 use IlGala\LaravelSMSFactor\SMSFactor;
-use IlGala\LaravelSMSFactor\Adapters\ConnectionFactory as AdapterFactory;
+use IlGala\LaravelSMSFactor\Connectors\ConnectionFactory as AdapterFactory;
 
 /**
  * This is the  SMSFactor factory class.
@@ -51,7 +51,7 @@ class SMSFactorFactory
     public function make(array $config)
     {
         $adapter = $this->createAdapter($config);
-        return new SMSFactor($adapter, $config('accept'));
+        return new SMSFactor($adapter, $config['accept']);
     }
 
     /**

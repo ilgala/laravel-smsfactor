@@ -11,6 +11,9 @@
 
 namespace IlGala\LaravelSMSFactor;
 
+use IlGala\LaravelSMSFactor\Exceptions\SMSFactorException;
+use IlGala\LaravelSMSFactor\Adapters\AdapterInterface;
+
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>
  */
@@ -52,7 +55,7 @@ class SMSFactor
      *
      * @return mixed
      */
-    public function createAccount($params = [])
+    public function createAccount($params)
     {
         // Http request
         $response = $this->adapter->post(sprintf('%s/account', $this->endpoint), $params);
@@ -84,7 +87,8 @@ class SMSFactor
     }
 
     /**
-     * Send single or multiple SMSs
+     * Send or simulate sending of single or multiple SMSs.
+     *
      * @return mixed
      */
     public function send($params, $method, $simulate = false)
@@ -139,11 +143,12 @@ class SMSFactor
     }
 
     /**
+     * Send or simulate sending of SMSs to selected lists.
+     *
      * @return mixed
      */
     public function sendLists($params, $simulate = false)
     {
-        // Http request
         $path = sprintf('%s/send/lists', $this->endpoint);
         if ($simulate) {
             $path .= '/simulate';
@@ -161,6 +166,8 @@ class SMSFactor
     }
 
     /**
+     * Cancel the sending with selected id.
+     *
      * @return mixed
      */
     public function delete($id)
@@ -177,6 +184,8 @@ class SMSFactor
     }
 
     /**
+     * Create or update a contact list.
+     *
      * @return mixed
      */
     public function contactList($params)
@@ -193,12 +202,37 @@ class SMSFactor
     }
 
     /**
+     * Retrieve contact lists.
+     *
      * @return mixed
      */
-    public function delete($id)
+    public function getContactList($id = null)
     {
-        // Http DELETE
-        $response = $this->adapter->delete(sprintf('%s/send/%d', $this->endpoint, $id));
+        $path = sprintf('%s/send', $this->endpoint);
+        if ($id) {
+            $path .= sprintf('/%d', $id);
+        }
+
+        // Http request
+        $response = $this->adapter->get($path);
+
+        // Result
+        if ($this->content_type == 'application/json') {
+            return json_decode($response);
+        } else {
+            return $response;
+        }
+    }
+
+    /**
+     * Remove duplicated contacts from list.
+     *
+     * @return mixed
+     */
+    public function deduplicate($id)
+    {
+
+        $response = $this->adapter->put(sprintf('%s/deduplicate/%d', $this->endpoint, $id));
 
         // Result
         if ($this->content_type == 'application/json') {
@@ -211,10 +245,28 @@ class SMSFactor
     /**
      * @return mixed
      */
-    public function delete($id)
+    public function deleteContact($id)
     {
 
-        $response = $this->adapter->delete(sprintf('%s/send/%d', $this->endpoint, $id));
+        $response = $this->adapter->delete(sprintf('%s/list/contact/%d', $this->endpoint, $id));
+
+        // Result
+        if ($this->content_type == 'application/json') {
+            return json_decode($response);
+        } else {
+            return $response;
+        }
+    }
+
+    /**
+     * Retrieve blacklist contacts.
+     *
+     * @return mixed
+     */
+    public function getBlacklist()
+    {
+        // Http request
+        $response = $this->adapter->get(sprintf('%s/blacklist', $this->endpoint));
 
         // Result
         if ($this->content_type == 'application/json') {
@@ -227,49 +279,16 @@ class SMSFactor
     /**
      * @return mixed
      */
-    public function delete($id)
+    public function deliveryReport($params)
     {
+        if ($this->content_type == 'application/json') {
+            throw new SMSFactorException("Delivery report is available accepts only XML");
+        }
 
-        $response = $this->adapter->delete(sprintf('%s/send/%d', $this->endpoint, $id));
+        $response = $this->adapter->post(sprintf('%s/dr', $this->endpoint), $params);
 
         // Result
-        if ($this->content_type == 'application/json') {
-            return json_decode($response);
-        } else {
-            return $response;
-        }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function delete($id)
-    {
-
-        $response = $this->adapter->delete(sprintf('%s/send/%d', $this->endpoint, $id));
-
-        // Result
-        if ($this->content_type == 'application/json') {
-            return json_decode($response);
-        } else {
-            return $response;
-        }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function delete($id)
-    {
-
-        $response = $this->adapter->delete(sprintf('%s/send/%d', $this->endpoint, $id));
-
-        // Result
-        if ($this->content_type == 'application/json') {
-            return json_decode($response);
-        } else {
-            return $response;
-        }
+        return $response;
     }
 
     private function isValidDate($date)

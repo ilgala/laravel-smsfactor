@@ -16,7 +16,17 @@ use Illuminate\Contracts\Config\Repository;
 
 /**
  * This is the SMSFactor manager class.
- * 
+ *
+ * @method mixed createAccount()
+ * @method mixed credits()
+ * @method mixed send()
+ * @method mixed sendLists()
+ * @method mixed delete()
+ * @method mixed contactList()
+ * @method mixed getContactList()
+ * @method mixed deduplicate()
+ * @method mixed deleteContact()
+ * @method mixed getBlacklist()
  *
  * @author Filippo Galante <filippo.galante@b-ground.com>
  */
