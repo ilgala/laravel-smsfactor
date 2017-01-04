@@ -102,7 +102,7 @@ class SMSFactorServiceProvider extends ServiceProvider
         $this->app->singleton('smsfactor', function (Container $app) {
             $config = $app['config'];
             $factory = $app['smsfactor.factory'];
-            return new DigitalOceanManager($config, $factory);
+            return new SMSFactorManager($config, $factory);
         });
         $this->app->alias('smsfactor', SMSFactorManager::class);
     }
