@@ -20,7 +20,7 @@ use IlGala\LaravelSMSFactor\Exceptions\HttpException;
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>
  */
-class BuzzAdapter implements AdapterInterface
+class GuzzleAdapter implements AdapterInterface
 {
 
     /**
@@ -140,5 +140,4 @@ class BuzzAdapter implements AdapterInterface
         $content = json_decode($body);
         throw new HttpException(isset($content->message) ? $content->message : 'Request not processed.', $code);
     }
-
 }

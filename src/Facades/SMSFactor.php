@@ -30,5 +30,4 @@ class SMSFactor extends Facade
     {
         return 'smsfactor';
     }
-
 }

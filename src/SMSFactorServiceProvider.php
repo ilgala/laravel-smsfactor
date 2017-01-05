@@ -135,5 +135,4 @@ class SMSFactorServiceProvider extends ServiceProvider
             'smsfactor.connection',
         ];
     }
-
 }

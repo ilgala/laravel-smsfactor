@@ -57,5 +57,4 @@ class ConnectionFactory
         }
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
     }
-
 }
