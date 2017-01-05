@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor\Adapters;
+namespace IlGala\SMSFactor\Adapters;
 
-use IlGala\LaravelSMSFactor\Exceptions\HttpException;
+use IlGala\SMSFactor\Exceptions\HttpException;
 
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>

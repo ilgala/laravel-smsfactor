@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor\Connectors;
+namespace IlGala\SMSFactor\Connectors;
 
 use InvalidArgumentException;
 
@@ -57,4 +57,5 @@ class ConnectionFactory
         }
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
     }
+
 }

@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor\Adapters;
+namespace IlGala\SMSFactor\Adapters;
 
 use Guzzle\Http\Client;
 use Guzzle\Http\ClientInterface;
 use Guzzle\Http\Exception\RequestException;
 use Guzzle\Http\Message\Response;
-use IlGala\LaravelSMSFactor\Exceptions\HttpException;
+use IlGala\SMSFactor\Exceptions\HttpException;
 
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>
@@ -140,4 +140,5 @@ class GuzzleAdapter implements AdapterInterface
         $content = json_decode($body);
         throw new HttpException(isset($content->message) ? $content->message : 'Request not processed.', $code);
     }
+
 }

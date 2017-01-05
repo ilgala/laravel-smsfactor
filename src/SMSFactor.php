@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor;
+namespace IlGala\SMSFactor;
 
-use IlGala\LaravelSMSFactor\Exceptions\SMSFactorException;
-use IlGala\LaravelSMSFactor\Adapters\AdapterInterface;
+use IlGala\SMSFactor\Exceptions\SMSFactorException;
+use IlGala\SMSFactor\Adapters\AdapterInterface;
 
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>
@@ -304,4 +304,5 @@ class SMSFactor
             return false;
         }
     }
+
 }
