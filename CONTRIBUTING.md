@@ -24,9 +24,25 @@ We accept contributions via Pull Requests on [Github](https://github.com/IlGala/
 
 ## Running Tests
 
-``` bash
-$ composer test
+You will need an install of [Composer](https://getcomposer.org/) before continuing.
+
+First, install the dependencies:
+
+```bash
+$ composer install
 ```
+
+Then run PHPUnit:
+
+```bash
+$ vendor/bin/phpunit
+```
+
+If the test suite passes on your local machine you should be good to go.
+
+When you make a pull request, the tests will automatically be run again by [Travis CI](https://travis-ci.org/).
+
+We also have [StyleCI](https://styleci.io/) setup to automatically fix any code style issues.
 
 
 **Happy coding**!
