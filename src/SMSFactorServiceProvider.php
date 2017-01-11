@@ -60,7 +60,7 @@ class SMSFactorServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerAdapterFactory();
-        $this->registerDigitalOceanFactory();
+        $this->registerSMSFactorFactory();
         $this->registerManager();
         $this->registerBindings();
     }
@@ -83,7 +83,7 @@ class SMSFactorServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerDigitalOceanFactory()
+    protected function registerSMSFactorFactory()
     {
         $this->app->singleton('smsfactor.factory', function (Container $app) {
             $adapter = $app['smsfactor.adapterfactory'];

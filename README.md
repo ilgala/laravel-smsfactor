@@ -4,7 +4,7 @@ Laravel SMSFactor was created by, and is maintained by [Filippo Galante](https:/
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![StyleCI][ico-style](link-style)
+[![StyleCI][ico-style]](link-style)
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
@@ -87,41 +87,52 @@ This class contains no public methods of interest. This class should be added to
 Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `main`. After you enter your authentication details in the config file, it will just work:
 
 ```php
-use GrahamCampbell\SMSFactor\Facades\SMSFactor;
+use IlGala\SMSFactor\Facades\SMSFactor;
 // you can alias this in config/app.php if you like
 
-SMSFactor::droplet()->powerOn(12345);
-// we're done here - how easy was that, it just works!
-
-SMSFactor::size()->getAll();
-// this example is simple, and there are far more methods available
+$total_credits = SMSFactor::credits();
+// Check SMS Factor documentation for more information about the results:
+/*
+ * $total_credits (JSON format):
+ * {
+ *  "credits": "2420",
+ *  "message": "OK"
+ * }
+ *
+ * $total_credits (XML format):
+ * <?xml version="1.0" encoding="UTF-8"?>
+ * <response>
+ *  <credits>2420</credits>
+ *  <message>OK</message>
+ * </response>
+ */
 ```
 
 The smsfactor manager will behave like it is a `\SMSFactor\SMSFactor` class. If you want to call specific connections, you can do with the `connection` method:
 
 ```php
-use GrahamCampbell\SMSFactor\Facades\SMSFactor;
+use IlGala\SMSFactor\Facades\SMSFactor;
 
 // the alternative connection is the other example provided in the default config
-SMSFactor::connection('alternative')->rateLimit()->getRateLimit()->remaining;
+SMSFactor::connection('alternative')->credits()->credits;
 
 // let's check how long we have until the limit will reset
-SMSFactor::connection('alternative')->rateLimit()->getRateLimit()->reset;
+SMSFactor::connection('alternative')->credits()->credits;
 ```
 
 With that in mind, note that:
 
 ```php
-use GrahamCampbell\SMSFactor\Facades\SMSFactor;
+use IlGala\SMSFactor\Facades\SMSFactor;
 
 // writing this:
-SMSFactor::connection('main')->region()->getAll();
+SMSFactor::connection('main')->credits();
 
 // is identical to writing this:
-SMSFactor::region()->getAll();
+SMSFactor::credits();
 
 // and is also identical to writing this:
-SMSFactor::connection()->region()->getAll();
+SMSFactor::connection()->credits();
 
 // this is because the main connection is configured to be the default
 SMSFactor::getDefaultConnection(); // this will return main
@@ -133,10 +144,10 @@ SMSFactor::setDefaultConnection('alternative'); // the default is now alternativ
 If you prefer to use dependency injection over facades like me, then you can easily inject the manager like so:
 
 ```php
-use GrahamCampbell\SMSFactor\SMSFactorManager;
+use IlGala\SMSFactor\SMSFactorManager;
 use Illuminate\Support\Facades\App; // you probably have this aliased already
 
-class Foo
+class SMSSender
 {
     protected $smsfactor;
 
@@ -145,13 +156,13 @@ class Foo
         $this->smsfactor = $smsfactor;
     }
 
-    public function bar()
+    public function sendSms($params, $method, $simulate = false)
     {
-        $this->smsfactor->region()->getAll();
+        $this->smsfactor->send($params, $method, $simulate = false);
     }
 }
 
-App::make('Foo')->bar();
+App::make('SMSSender')->bar();
 ```
 
 For more information on how to use the `\SMSFactor\SMSFactor` class we are calling behind the scenes here, check out the [SMSFactor API doc](https://www.smsfactor.it/docs/API/SMSFactor-DOC-API%20IT%20V3.pdf), and the manager class at https://github.com/GrahamCampbell/Laravel-Manager#usage.
