@@ -85,5 +85,4 @@ class SMSFactorManager extends AbstractManager
     {
         return $this->factory;
     }
-
 }
