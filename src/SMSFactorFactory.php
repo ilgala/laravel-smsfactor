@@ -75,5 +75,4 @@ class SMSFactorFactory
     {
         return $this->adapter;
     }
-
 }

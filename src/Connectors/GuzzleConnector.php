@@ -64,5 +64,4 @@ class GuzzleConnector
     {
         return new GuzzleAdapter($config['username'], $config['password'], $config['accept']);
     }
-
 }

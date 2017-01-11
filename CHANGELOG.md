@@ -1,6 +1,6 @@
 CHANGE LOG
 ==========
 
-## 0.0.1-alpha - 2017-01-07
+## v1.0.0-alpha - 2017-01-11
 
 Initial testing release
