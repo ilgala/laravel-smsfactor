@@ -11,7 +11,7 @@
 
 namespace IlGala\Tests\SMSFactor\Adapters;
 
-use IlGala\SMSFactor\Adapter\BuzzAdapter;
+use IlGala\SMSFactor\Adapters\BuzzAdapter;
 use IlGala\SMSFactor\Connectors\BuzzConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 

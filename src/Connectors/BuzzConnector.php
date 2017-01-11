@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+namespace IlGala\SMSFactor\Connectors;
+
 use IlGala\SMSFactor\Adapters\BuzzAdapter;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
@@ -62,4 +64,5 @@ class BuzzConnector implements ConnectorInterface
     {
         return new BuzzAdapter($config['username'], $config['password'], $config['accept']);
     }
+
 }
