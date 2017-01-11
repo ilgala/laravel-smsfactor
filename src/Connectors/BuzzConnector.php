@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use IlGala\LaravelSMSFactor\Adapters\BuzzAdapter;
+use IlGala\SMSFactor\Adapters\BuzzAdapter;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
 
@@ -26,7 +26,7 @@ class BuzzConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \IlGala\LaravelSMSFactor\Adapters\BuzzAdapter
+     * @return \IlGala\SMSFactor\Adapters\BuzzAdapter
      */
     public function connect(array $config)
     {
@@ -56,7 +56,7 @@ class BuzzConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \IlGala\LaravelSMSFactor\Adapters\BuzzAdapter
+     * @return \IlGala\SMSFactor\Adapters\BuzzAdapter
      */
     protected function getAdapter(array $config)
     {

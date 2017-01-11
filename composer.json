@@ -1,10 +1,12 @@
 {
-    "name": "IlGala/laravel-smsfactor",
+    "name": "ilgala/laravel-smsfactor",
     "type": "library",
     "description": "A SMSFactor bridge for Laravel 5 https://www.smsfactor.it/api/",
     "keywords": [
         "IlGala",
-        "laravel-smsfactor"
+        "package",
+        "laravel",
+        "SMSFactor"
     ],
     "homepage": "https://github.com/IlGala/laravel-smsfactor",
     "license": "MIT",

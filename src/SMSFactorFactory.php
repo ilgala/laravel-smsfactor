@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor;
+namespace IlGala\SMSFactor;
 
-use IlGala\LaravelSMSFactor\SMSFactor;
-use IlGala\LaravelSMSFactor\Connectors\ConnectionFactory as AdapterFactory;
+use IlGala\SMSFactor\SMSFactor;
+use IlGala\SMSFactor\Connectors\ConnectionFactory as AdapterFactory;
 
 /**
  * This is the  SMSFactor factory class.
@@ -25,14 +25,14 @@ class SMSFactorFactory
     /**
      * The adapter factory instance.
      *
-     * @var \IlGala\LaravelSMSFactor\Adapters\ConnectionFactory
+     * @var \IlGala\SMSFactor\Adapters\ConnectionFactory
      */
     protected $adapter;
 
     /**
      * Create a new filesystem factory instance.
      *
-     * @param \IlGala\LaravelSMSFactor\Adapters\ConnectionFactory $adapter
+     * @param \IlGala\SMSFactor\Adapters\ConnectionFactory $adapter
      *
      * @return void
      */
@@ -46,7 +46,7 @@ class SMSFactorFactory
      *
      * @param string[] $config
      *
-     * @return \IlGala\LaravelSMSFactor\SMSFactor
+     * @return \IlGala\SMSFactor\SMSFactor
      */
     public function make(array $config)
     {
@@ -59,7 +59,7 @@ class SMSFactorFactory
      *
      * @param array $config
      *
-     * @return \IlGala\LaravelSMSFactor\Adapters\AdapterInterface
+     * @return \IlGala\SMSFactor\Adapters\AdapterInterface
      */
     public function createAdapter(array $config)
     {
@@ -69,7 +69,7 @@ class SMSFactorFactory
     /**
      * Get the adapter factory instance.
      *
-     * @return \IlGala\LaravelSMSFactor\Adapters\ConnectionFactory
+     * @return \IlGala\SMSFactor\Adapters\ConnectionFactory
      */
     public function getAdapter()
     {

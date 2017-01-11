@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor\Facades;
+namespace IlGala\SMSFactor\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

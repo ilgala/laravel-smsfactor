@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor;
+namespace IlGala\SMSFactor;
 
-use IlGala\LaravelSMSFactor\SMSFactor;
-use IlGala\LaravelSMSFactor\Connectors\ConnectionFactory as AdapterFactory;
+use IlGala\SMSFactor\SMSFactor;
+use IlGala\SMSFactor\Connectors\ConnectionFactory as AdapterFactory;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
@@ -60,7 +60,7 @@ class SMSFactorServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerAdapterFactory();
-        $this->registerDigitalOceanFactory();
+        $this->registerSMSFactorFactory();
         $this->registerManager();
         $this->registerBindings();
     }
@@ -83,7 +83,7 @@ class SMSFactorServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerDigitalOceanFactory()
+    protected function registerSMSFactorFactory()
     {
         $this->app->singleton('smsfactor.factory', function (Container $app) {
             $adapter = $app['smsfactor.adapterfactory'];

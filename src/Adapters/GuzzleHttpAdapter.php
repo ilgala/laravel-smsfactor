@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor\Adapters;
+namespace IlGala\SMSFactor\Adapters;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Message\ResponseInterface;
 use GuzzleHttp\Psr7\Response;
-use IlGala\LaravelSMSFactor\Exceptions\HttpException;
+use IlGala\SMSFactor\Exceptions\HttpException;
 
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>

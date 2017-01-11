@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor\Connectors;
+namespace IlGala\SMSFactor\Connectors;
 
-use IlGala\LaravelSMSFactor\Adapters\GuzzleHttpAdapter;
+use IlGala\SMSFactor\Adapters\GuzzleHttpAdapter;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
 
@@ -26,7 +26,7 @@ class GuzzleHttpConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \IlGala\LaravelSMSFactor\Adapters\GuzzleHttpAdapter
+     * @return \IlGala\SMSFactor\Adapters\GuzzleHttpAdapter
      */
     public function connect(array $config)
     {
@@ -56,7 +56,7 @@ class GuzzleHttpConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \IlGala\LaravelSMSFactor\Adapters\GuzzleHttpAdapter
+     * @return \IlGala\SMSFactor\Adapters\GuzzleHttpAdapter
      */
     protected function getAdapter(array $config)
     {

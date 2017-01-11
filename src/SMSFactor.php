@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor;
+namespace IlGala\SMSFactor;
 
-use IlGala\LaravelSMSFactor\Exceptions\SMSFactorException;
-use IlGala\LaravelSMSFactor\Adapters\AdapterInterface;
+use IlGala\SMSFactor\Exceptions\SMSFactorException;
+use IlGala\SMSFactor\Adapters\AdapterInterface;
 
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>
@@ -110,7 +110,7 @@ class SMSFactor
             } else {
                 return $response;
             }
-        } else if (strtoupper($method) == 'GET') {
+        } elseif (strtoupper($method) == 'GET') {
             // Http request
             $path = sprintf('%s/send?username=%s&password=%s&text=%s&to=%s', $this->endpoint, $params['username'], $params['password'], $params['text'], $params['to']);
 
@@ -231,7 +231,6 @@ class SMSFactor
      */
     public function deduplicate($id)
     {
-
         $response = $this->adapter->put(sprintf('%s/deduplicate/%d', $this->endpoint, $id));
 
         // Result
@@ -247,7 +246,6 @@ class SMSFactor
      */
     public function deleteContact($id)
     {
-
         $response = $this->adapter->delete(sprintf('%s/list/contact/%d', $this->endpoint, $id));
 
         // Result
@@ -297,8 +295,9 @@ class SMSFactor
             $time = gmmktime($parts[4], $parts[5], $parts[6], $parts[2], $parts[3], $parts[1]);
 
             $input_time = strtotime($date);
-            if ($input_time === false)
+            if ($input_time === false) {
                 return false;
+            }
 
             return $input_time == $time;
         } else {

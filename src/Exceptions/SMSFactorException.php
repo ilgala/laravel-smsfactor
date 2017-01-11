@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor\Exceptions;
+namespace IlGala\SMSFactor\Exceptions;
 
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>
  */
-class SMSFactorException extends \RuntimeException implements ExceptionInterface
+class SMSFactorException extends \RuntimeException
 {
     //
 }

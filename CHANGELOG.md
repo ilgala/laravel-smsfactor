@@ -1,22 +1,6 @@
-# Changelog
+CHANGE LOG
+==========
 
-All Notable changes to `laravel-smsfactor` will be documented in this file.
+## 0.0.1-alpha - 2017-01-07
 
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
-
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+Initial testing release

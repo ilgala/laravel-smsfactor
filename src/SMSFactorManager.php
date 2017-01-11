@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelSMSFactor;
+namespace IlGala\SMSFactor;
 
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
@@ -36,7 +36,7 @@ class SMSFactorManager extends AbstractManager
     /**
      * The factory instance.
      *
-     * @var \IlGala\LaravelSMSFactor\SMSFactorFactory
+     * @var \IlGala\SMSFactor\SMSFactorFactory
      */
     protected $factory;
 
@@ -44,7 +44,7 @@ class SMSFactorManager extends AbstractManager
      * Create a new digitalocean manager instance.
      *
      * @param \Illuminate\Contracts\Config\Repository          $config
-     * @param \IlGala\LaravelSMSFactor\SMSFactorFactory        $factory
+     * @param \IlGala\SMSFactor\SMSFactorFactory        $factory
      *
      * @return void
      */
@@ -59,7 +59,7 @@ class SMSFactorManager extends AbstractManager
      *
      * @param array $config
      *
-     * @return \IlGala\LaravelSMSFactor\SMSFactor
+     * @return \IlGala\SMSFactor\SMSFactor
      */
     protected function createConnection(array $config)
     {
@@ -79,7 +79,7 @@ class SMSFactorManager extends AbstractManager
     /**
      * Get the factory instance.
      *
-     * @return \IlGala\LaravelSMSFactor\SMSFactorFactory
+     * @return \IlGala\SMSFactor\SMSFactorFactory
      */
     public function getFactory()
     {
