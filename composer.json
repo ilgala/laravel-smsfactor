@@ -50,10 +50,13 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.0-alpha"
+            "dev-master": "1.0-dev"
         }
     },
     "config": {
+        "preferred-install": "dist",
         "sort-packages": true
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
