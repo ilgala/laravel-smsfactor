@@ -32,7 +32,9 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testMake()
     {
         $factory = $this->getMockedFactory();
+
         $return = $factory->make(['driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json']);
+
         $this->assertInstanceOf(AdapterInterface::class, $return);
     }
 
@@ -51,7 +53,9 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testCreateWorkingDriver($driver, $class)
     {
         $factory = $this->getConnectionFactory();
+
         $return = $factory->createConnector(['driver' => $driver]);
+
         $this->assertInstanceOf($class, $return);
     }
 
@@ -62,6 +66,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testCreateEmptyDriverConnector()
     {
         $factory = $this->getConnectionFactory();
+
         $factory->createConnector([]);
     }
 
@@ -72,6 +77,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testCreateUnsupportedDriverConnector()
     {
         $factory = $this->getConnectionFactory();
+
         $factory->createConnector(['driver' => 'unsupported']);
     }
 
@@ -83,13 +89,17 @@ class ConnectionFactoryTest extends AbstractTestCase
     protected function getMockedFactory()
     {
         $mock = Mockery::mock(ConnectionFactory::class . '[createConnector]');
+
         $connector = Mockery::mock(LocalConnector::class);
+
         $connector->shouldReceive('connect')->once()
                 ->with(['name' => 'main', 'driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
                 ->andReturn(Mockery::mock(BuzzAdapter::class));
+
         $mock->shouldReceive('createConnector')->once()
                 ->with(['name' => 'main', 'driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
                 ->andReturn($connector);
+
         return $mock;
     }
 

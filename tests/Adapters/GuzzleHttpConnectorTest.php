@@ -26,7 +26,9 @@ class GuzzleHttpConnectorTest extends AbstractTestCase
     public function testConnectStandard()
     {
         $connector = $this->getGuzzleHttpConnector();
-        $return = $connector->connect(['token' => 'your-token']);
+
+        $return = $connector->connect(['username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json']);
+
         $this->assertInstanceOf(GuzzleHttpAdapter::class, $return);
     }
 
@@ -37,6 +39,7 @@ class GuzzleHttpConnectorTest extends AbstractTestCase
     public function testConnectWithoutTokent()
     {
         $connector = $this->getGuzzleHttpConnector();
+
         $connector->connect([]);
     }
 

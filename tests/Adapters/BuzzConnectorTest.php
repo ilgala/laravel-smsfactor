@@ -26,7 +26,9 @@ class BuzzConnectorTest extends AbstractTestCase
     public function testConnectStandard()
     {
         $connector = $this->getBuzzConnector();
+
         $return = $connector->connect(['username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json']);
+
         $this->assertInstanceOf(BuzzAdapter::class, $return);
     }
 
@@ -37,6 +39,7 @@ class BuzzConnectorTest extends AbstractTestCase
     public function testConnectWithoutToken()
     {
         $connector = $this->getBuzzConnector();
+
         $connector->connect([]);
     }
 
