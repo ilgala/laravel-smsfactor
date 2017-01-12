@@ -20,7 +20,7 @@ use InvalidArgumentException;
  *
  * @author Filippo Galante <filippo.galante@b-ground.com>
  */
-class GuzzleConnector
+class GuzzleConnector implements ConnectorInterface
 {
 
     /**
@@ -64,4 +64,5 @@ class GuzzleConnector
     {
         return new GuzzleAdapter($config['username'], $config['password'], $config['accept']);
     }
+
 }

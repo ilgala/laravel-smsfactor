@@ -26,7 +26,7 @@ class ConnectionFactory
      *
      * @param array $config
      *
-     * @return \DigitalOceanV2\Adapter\AdapterInterface
+     * @return \IlGala\SMSFactor\Adapters\AdapterInterface
      */
     public function make(array $config)
     {
@@ -57,4 +57,5 @@ class ConnectionFactory
         }
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
     }
+
 }

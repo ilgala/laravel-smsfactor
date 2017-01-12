@@ -45,10 +45,15 @@ class ServiceProviderTest extends AbstractTestCase
     public function testBindings()
     {
         $this->assertIsInjectable(SMSFactor::class);
+
         $original = $this->app['smsfactor.connection'];
+
         $this->app['smsfactor']->reconnect();
+
         $new = $this->app['smsfactor.connection'];
+
         $this->assertNotSame($original, $new);
+
         $this->assertEquals($original, $new);
     }
 

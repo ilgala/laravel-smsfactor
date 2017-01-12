@@ -39,12 +39,12 @@
     },
     "autoload": {
         "psr-4": {
-            "IlGala\\laravel-smsfactor\\": "src"
+            "IlGala\\SMSFactor\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IlGala\\laravel-smsfactor\\": "tests"
+            "IlGala\\Tests\\SMSFactor\\": "tests"
         }
     },
     "scripts": {

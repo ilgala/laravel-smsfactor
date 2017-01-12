@@ -29,25 +29,37 @@ class SMSFactorManagerTest extends AbstractTestBenchTestCase
     public function testCreateConnection()
     {
         $config = ['username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'];
+
         $manager = $this->getManager($config);
+
         $manager->getConfig()->shouldReceive('get')->once()
                 ->with('smsfactor.default')->andReturn('main');
+
         $this->assertSame([], $manager->getConnections());
+
         $return = $manager->connection();
+
         $this->assertInstanceOf(SMSFactor::class, $return);
+
         $this->assertArrayHasKey('main', $manager->getConnections());
     }
 
     protected function getManager(array $config)
     {
         $repo = Mockery::mock(Repository::class);
+
         $factory = Mockery::mock(SMSFactorFactory::class);
+
         $manager = new SMSFactorManager($repo, $factory);
+
         $manager->getConfig()->shouldReceive('get')->once()
                 ->with('smsfactor.connections')->andReturn(['main' => $config]);
+
         $config['name'] = 'main';
+
         $manager->getFactory()->shouldReceive('make')->once()
                 ->with($config)->andReturn(Mockery::mock(SMSFactor::class));
+
         return $manager;
     }
 
