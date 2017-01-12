@@ -22,7 +22,6 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  */
 class GuzzleConnectorTest extends AbstractTestCase
 {
-
     public function testConnectStandard()
     {
         $connector = $this->getGuzzleConnector();
@@ -47,5 +46,4 @@ class GuzzleConnectorTest extends AbstractTestCase
     {
         return new GuzzleConnector();
     }
-
 }

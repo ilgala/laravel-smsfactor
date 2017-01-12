@@ -62,5 +62,4 @@ class GuzzleHttpConnector implements ConnectorInterface
     {
         return new GuzzleHttpAdapter($config['username'], $config['password'], $config['accept']);
     }
-
 }
