@@ -33,5 +33,4 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
     {
         return SMSFactorServiceProvider::class;
     }
-
 }
