@@ -41,7 +41,7 @@ class SMSFactorManager extends AbstractManager
     protected $factory;
 
     /**
-     * Create a new digitalocean manager instance.
+     * Create a new smsfactor manager instance.
      *
      * @param \Illuminate\Contracts\Config\Repository          $config
      * @param \IlGala\SMSFactor\SMSFactorFactory        $factory
@@ -85,4 +85,5 @@ class SMSFactorManager extends AbstractManager
     {
         return $this->factory;
     }
+
 }

@@ -42,7 +42,7 @@ class SMSFactorFactory
     }
 
     /**
-     * Make a new digitalocean client.
+     * Make a new smsfactor client.
      *
      * @param string[] $config
      *
@@ -75,4 +75,5 @@ class SMSFactorFactory
     {
         return $this->adapter;
     }
+
 }

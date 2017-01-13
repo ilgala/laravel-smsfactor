@@ -33,7 +33,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $factory = $this->getMockedFactory();
 
-        $return = $factory->make(['driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json']);
+        $return = $factory->make(['driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json']);
 
         $this->assertInstanceOf(AdapterInterface::class, $return);
     }
@@ -93,11 +93,11 @@ class ConnectionFactoryTest extends AbstractTestCase
         $connector = Mockery::mock(LocalConnector::class);
 
         $connector->shouldReceive('connect')->once()
-                ->with(['name' => 'main', 'driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
+                ->with(['name' => 'main', 'driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
                 ->andReturn(Mockery::mock(BuzzAdapter::class));
 
         $mock->shouldReceive('createConnector')->once()
-                ->with(['name' => 'main', 'driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
+                ->with(['name' => 'main', 'driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
                 ->andReturn($connector);
 
         return $mock;

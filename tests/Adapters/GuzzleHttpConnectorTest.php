@@ -11,7 +11,7 @@
 
 namespace IlGala\Tests\SMSFactor\Adapters;
 
-use IlGala\SMSFactor\Adapter\GuzzleHttpAdapter;
+use IlGala\SMSFactor\Adapters\GuzzleHttpAdapter;
 use IlGala\SMSFactor\Connectors\GuzzleHttpConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 
