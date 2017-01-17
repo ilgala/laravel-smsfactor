@@ -304,5 +304,4 @@ class SMSFactor
             return false;
         }
     }
-
 }

@@ -64,5 +64,4 @@ class BuzzConnector implements ConnectorInterface
     {
         return new BuzzAdapter($config['username'], $config['password'], $config['accept']);
     }
-
 }

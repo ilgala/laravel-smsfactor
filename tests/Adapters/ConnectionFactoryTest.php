@@ -28,7 +28,6 @@ use Mockery;
  */
 class ConnectionFactoryTest extends AbstractTestCase
 {
-
     public function testMake()
     {
         $factory = $this->getMockedFactory();
@@ -102,5 +101,4 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         return $mock;
     }
-
 }
