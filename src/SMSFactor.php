@@ -64,7 +64,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -82,7 +82,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -108,7 +108,7 @@ class SMSFactor
             if ($this->content_type == 'application/json') {
                 return json_decode($response);
             } else {
-                return $response;
+                return new \SimpleXMLElement($response);
             }
         } elseif (strtoupper($method) == 'GET') {
             // Http request
@@ -135,7 +135,7 @@ class SMSFactor
             if ($this->content_type == 'application/json') {
                 return json_decode($response);
             } else {
-                return $response;
+                return new \SimpleXMLElement($response);
             }
         } else {
             return null;
@@ -161,7 +161,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -179,7 +179,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -197,7 +197,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -220,7 +220,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -237,7 +237,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -252,7 +252,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -270,7 +270,7 @@ class SMSFactor
         if ($this->content_type == 'application/json') {
             return json_decode($response);
         } else {
-            return $response;
+            return new \SimpleXMLElement($response);
         }
     }
 
@@ -286,7 +286,7 @@ class SMSFactor
         $response = $this->adapter->post(sprintf('%s/dr', $this->endpoint), $params);
 
         // Result
-        return $response;
+        return new \SimpleXMLElement($response);
     }
 
     private function isValidDate($date)

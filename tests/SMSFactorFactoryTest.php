@@ -11,7 +11,7 @@
 
 namespace IlGala\Tests\SMSFactor;
 
-use IlGala\SMSFactor\Adapter\AdapterInterface;
+use IlGala\SMSFactor\Adapters\AdapterInterface;
 use IlGala\SMSFactor\SMSFactor;
 use IlGala\SMSFactor\Connectors\ConnectionFactory;
 use IlGala\SMSFactor\SMSFactorFactory;
@@ -28,7 +28,7 @@ class SMSFactorFactoryTest extends AbstractTestBenchTestCase
 {
     public function testMake()
     {
-        $config = ['driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'];
+        $config = ['driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'];
 
         $manager = Mockery::mock(SMSFactorManager::class);
 

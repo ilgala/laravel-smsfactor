@@ -11,8 +11,8 @@
 
 namespace IlGala\Tests\SMSFactor\Adapters;
 
-use IlGala\SMSFactor\Adapter\AdapterInterface;
-use IlGala\SMSFactor\Adapter\BuzzAdapter;
+use IlGala\SMSFactor\Adapters\AdapterInterface;
+use IlGala\SMSFactor\Adapters\BuzzAdapter;
 use IlGala\SMSFactor\Connectors\BuzzConnector;
 use IlGala\SMSFactor\Connectors\ConnectionFactory;
 use IlGala\SMSFactor\Connectors\GuzzleConnector;
@@ -32,7 +32,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $factory = $this->getMockedFactory();
 
-        $return = $factory->make(['driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json']);
+        $return = $factory->make(['driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json']);
 
         $this->assertInstanceOf(AdapterInterface::class, $return);
     }
@@ -92,11 +92,11 @@ class ConnectionFactoryTest extends AbstractTestCase
         $connector = Mockery::mock(LocalConnector::class);
 
         $connector->shouldReceive('connect')->once()
-                ->with(['name' => 'main', 'driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
+                ->with(['driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
                 ->andReturn(Mockery::mock(BuzzAdapter::class));
 
         $mock->shouldReceive('createConnector')->once()
-                ->with(['name' => 'main', 'driver' => 'buzz', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
+                ->with(['driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'])
                 ->andReturn($connector);
 
         return $mock;
