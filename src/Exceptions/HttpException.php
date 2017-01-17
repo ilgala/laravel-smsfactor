@@ -14,7 +14,7 @@ namespace IlGala\SMSFactor\Exceptions;
 /**
  * @author Filippo Galante <filippo.galante@b-ground.com>
  */
-class HttpException extends \RuntimeException implements ExceptionInterface
+class HttpException extends \RuntimeException
 {
     //
 }
