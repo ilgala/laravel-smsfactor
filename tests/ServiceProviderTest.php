@@ -24,7 +24,6 @@ use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
  */
 class ServiceProviderTest extends AbstractTestCase
 {
-
     use ServiceProviderTrait;
 
     public function testAdapterFactoryIsInjectable()
@@ -56,5 +55,4 @@ class ServiceProviderTest extends AbstractTestCase
 
         $this->assertEquals($original, $new);
     }
-
 }

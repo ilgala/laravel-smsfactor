@@ -26,7 +26,6 @@ use Mockery;
  */
 class SMSFactorFactoryTest extends AbstractTestBenchTestCase
 {
-
     public function testMake()
     {
         $config = ['driver' => 'guzzlehttp', 'username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'];
@@ -72,5 +71,4 @@ class SMSFactorFactoryTest extends AbstractTestBenchTestCase
 
         return $mock;
     }
-
 }

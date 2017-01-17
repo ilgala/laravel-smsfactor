@@ -22,7 +22,6 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  */
 class BuzzConnectorTest extends AbstractTestCase
 {
-
     public function testConnectStandard()
     {
         $connector = $this->getBuzzConnector();
@@ -47,5 +46,4 @@ class BuzzConnectorTest extends AbstractTestCase
     {
         return new BuzzConnector();
     }
-
 }

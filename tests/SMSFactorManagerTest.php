@@ -25,7 +25,6 @@ use Mockery;
  */
 class SMSFactorManagerTest extends AbstractTestBenchTestCase
 {
-
     public function testCreateConnection()
     {
         $config = ['username' => 'your-username', 'password' => 'your-password', 'accept' => 'application/json'];
@@ -62,5 +61,4 @@ class SMSFactorManagerTest extends AbstractTestBenchTestCase
 
         return $manager;
     }
-
 }

@@ -23,7 +23,6 @@ use IlGala\Tests\SMSFactor\AbstractTestCase;
  */
 class SMSFactorTest extends AbstractTestCase
 {
-
     use FacadeTrait;
 
     /**
@@ -55,5 +54,4 @@ class SMSFactorTest extends AbstractTestCase
     {
         return SMSFactorManager::class;
     }
-
 }
