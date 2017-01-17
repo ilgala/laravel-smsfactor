@@ -84,7 +84,8 @@ This class contains no public methods of interest. This class should be added to
 
 ##### Real Examples
 
-Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `main`. After you enter your authentication details in the config file, it will just work:
+Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `main`. Depending on the `accept` attribute setted in the config file, the response will be automatically returned as decoded JSON or [`SimpleXMLElement`](http://php.net/manual/en/class.simplexmlelement.php)
+After you enter your authentication details in the config file, it will just work:
 
 ```php
 use IlGala\SMSFactor\Facades\SMSFactor;
