@@ -184,7 +184,7 @@ Laravel SMSFactor is licensed under [The MIT License (MIT)](LICENSE).
 
 [ico-version]: https://img.shields.io/packagist/v/IlGala/laravel-smsfactor.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-style]: https://styleci.io/repos/78115500/shield?branch=develop
+[ico-style]: https://styleci.io/repos/78115500/shield?branch=master
 [ico-travis]: https://img.shields.io/travis/IlGala/laravel-smsfactor/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/IlGala/laravel-smsfactor.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/IlGala/laravel-smsfactor.svg?style=flat-square
